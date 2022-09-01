@@ -1,13 +1,18 @@
 package com.jrtp.controller;
 
+
+
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,4 +63,10 @@ public class EligiblityController {
 		return new ResponseEntity<>(searchResult,HttpStatus.OK);
 	}
 
+   @GetMapping("/downloadxls")
+   public ResponseEntity<String> downloadXls(HttpServletResponse response){
+	   eligibilityService.generateXLS(response);
+	   
+	    return new  ResponseEntity<>("downloaded xls successfully",HttpStatus.OK);
+   }
 }
