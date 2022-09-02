@@ -136,6 +136,7 @@ public class EligibilityServiceImpl implements EligibilityService {
 		headerRow.createCell(2).setCellValue("Mobile");
 		headerRow.createCell(3).setCellValue("Gender");
 		headerRow.createCell(4).setCellValue("SSN");
+		headerRow.createCell(5).setCellValue("Email");
 
 		// forEach entity data row
 		int i = 1;
@@ -146,6 +147,7 @@ public class EligibilityServiceImpl implements EligibilityService {
 			dataRow.createCell(2).setCellValue(entity.getMobileNum());
 			dataRow.createCell(3).setCellValue(entity.getGeneder().toString());
 			dataRow.createCell(4).setCellValue(entity.getSsn());
+			dataRow.createCell(5).setCellValue(entity.getEmail());
 			i++;
 		}
 
@@ -189,10 +191,10 @@ public class EligibilityServiceImpl implements EligibilityService {
 
 		// add the data in the form of table
 
-		PdfPTable table = new PdfPTable(5);
+		PdfPTable table = new PdfPTable(6);
 		table.setWidthPercentage(100f);
-		table.setWidths(new float[] { 1.5f, 3.5f, 3.0f, 3.0f, 1.5f });
-		table.setSpacingBefore(10);
+		table.setWidths(new float[] { 1.0f, 2.5f, 2.5f, 1.5f, 2.0f , 3.5f });
+		table.setSpacingBefore(8);
 
 		writeTableHeader(table);
 
@@ -227,6 +229,9 @@ public class EligibilityServiceImpl implements EligibilityService {
 
 		cell.setPhrase(new Phrase("SSN", font));
 		table.addCell(cell);
+		
+		cell.setPhrase(new Phrase("Email id", font));
+		table.addCell(cell);
 	}
 
 	private void writeTableData(List<EligibilityDetails> entites, PdfPTable table) {
@@ -239,6 +244,7 @@ public class EligibilityServiceImpl implements EligibilityService {
 			table.addCell(String.valueOf(entity.getMobileNum()));
 			table.addCell(String.valueOf(entity.getGeneder()));
 			table.addCell(String.valueOf(entity.getSsn()));
+			table.addCell(String.valueOf(entity.getEmail()));
 			i++;
 		}
 	}

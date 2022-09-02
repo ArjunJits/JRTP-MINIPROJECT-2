@@ -27,7 +27,7 @@ public class AppRunner implements ApplicationRunner {
     			                 .mobileNum(99668099L + i)
     			                 .email("mallik@gmail.com" + i)
     			                 .geneder('M')
-    			                 .ssn(123456L)
+    			                 .ssn(123456L + i)
     			                 .planName("Midicare")
     			                 .planStatus("Active")
     			                 .creationDate(LocalDate.parse("2020-08-01").plusDays(i))

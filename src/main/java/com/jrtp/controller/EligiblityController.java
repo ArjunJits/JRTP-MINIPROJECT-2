@@ -91,7 +91,7 @@ public class EligiblityController {
 
 
 	@GetMapping("/downloadxls") // 
-	public ResponseEntity<String> downloadXls(HttpServletResponse response) throws Exception {
+	public void downloadXls(HttpServletResponse response) throws Exception {
 		response.setContentType("application/octet-stream");
 		
 		String headerKey = "Content-Disposition";
@@ -101,7 +101,7 @@ public class EligiblityController {
 		
 		eligibilityService.generateXLS(response);
 
-		return new ResponseEntity<>("downloaded xls successfully", HttpStatus.OK);
+		
 	}
 	
 	@GetMapping("/pdf")
