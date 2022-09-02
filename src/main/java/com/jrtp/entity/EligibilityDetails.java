@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class EligibilityDetails {
 
 	@Id
@@ -27,6 +29,7 @@ public class EligibilityDetails {
 	@Column(name = "ELIG_ID")
 	private Integer eligId;
 
+	
 	@Column(name = "NAME")
 	private String name;
 

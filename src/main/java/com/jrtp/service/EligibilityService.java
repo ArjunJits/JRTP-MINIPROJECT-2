@@ -20,10 +20,10 @@ public interface EligibilityService {
 	public List<SearchResponse> search(SearchRequest request); //request  data is dynamic
 	
 	public List<SearchResponse> searchRecords(SearchRequest request);
-	public void generateXLS(HttpServletResponse response);
+	public void generateXLS(HttpServletResponse response) throws Exception;
     //public HttpServletResponse generateXLS(); same as above java is pass by reference
 	
-	public void geneartePDF(HttpServletResponse response); // download file added to response object
+	public void geneartePDF(HttpServletResponse response) throws Exception; // download file added to response object
 	
 	
 }
